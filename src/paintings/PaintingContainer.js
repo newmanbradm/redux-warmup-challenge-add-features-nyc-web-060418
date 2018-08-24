@@ -25,7 +25,9 @@ class PaintingContainer extends Component {
           {this.props.activePainting ? (
             <PaintingShow painting={this.props.activePainting} />
           ) : (
-            <h3>select a painting</h3>
+            (this.props.activePainting === undefined && this.props.paintings.length !== 0) ? <PaintingShow painting={this.props.paintings[0]} /> 
+            :
+            <h3>Select Painting</h3>
           )}
         </div>
       </div>
@@ -38,9 +40,6 @@ const mapStateToProps = state => ({
   activePainting: state.paintings.find(p => p.id === state.activePaintingId)
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   deletePainting: () => dispatch({ type: DELETE_ACTIVE_PAINTING })
-// })
 
 export default connect(mapStateToProps, actions)(PaintingContainer);
 // NOTE: here we're using the shorthand syntax for mapDispatchToProps

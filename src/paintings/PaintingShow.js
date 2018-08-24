@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 const PaintingShow = ({ painting, deletePainting }) => {
+
   return (
     <div className="ui card">
       <div className="image">
