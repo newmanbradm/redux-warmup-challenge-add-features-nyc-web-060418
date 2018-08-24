@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
-const PaintingShow = ({ painting }) => {
+const PaintingShow = ({ painting, deletePainting }) => {
   return (
     <div className="ui card">
       <div className="image">
@@ -20,10 +22,14 @@ const PaintingShow = ({ painting }) => {
           </p>
           <p>{painting.artist.hometown}</p>
         </div>
-        <div className="ui basic red right aligned button">Delete</div>
+        <div className="ui basic red right aligned button" onClick={() => deletePainting(painting.id)}>Delete</div>
       </div>
     </div>
   );
 };
 
-export default PaintingShow;
+// const mapStateToProps = (state) => ({
+//   paintings: state.paintings.filter(painting => painting.id !== state.deletePaintingId)
+// })
+
+export default connect(null, actions)(PaintingShow);

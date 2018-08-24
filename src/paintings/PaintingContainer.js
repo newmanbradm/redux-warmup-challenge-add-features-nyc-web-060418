@@ -38,6 +38,10 @@ const mapStateToProps = state => ({
   activePainting: state.paintings.find(p => p.id === state.activePaintingId)
 });
 
+// const mapDispatchToProps = dispatch => ({
+//   deletePainting: () => dispatch({ type: DELETE_ACTIVE_PAINTING })
+// })
+
 export default connect(mapStateToProps, actions)(PaintingContainer);
 // NOTE: here we're using the shorthand syntax for mapDispatchToProps
 // (This is the recommended way to do this)
